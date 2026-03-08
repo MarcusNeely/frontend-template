@@ -33,6 +33,7 @@ Invoke agents by asking Claude: *"Use the [agent name] to..."*
 | **UI Tester** | `.claude/agents/ui-tester.md` | Write and maintain Vitest + RTL tests |
 | **Frontend Architect** | `.claude/agents/frontend-architect.md` | Plan project structure, state management, routing |
 | **API Assistant** | `.claude/agents/api-assistant.md` | Integrate REST/GraphQL APIs, handle async data |
+| **Security Specialist** | `.claude/agents/security-specialist.md` | Audit for XSS, CSRF, JWT risks, and OWASP front end vulnerabilities |
 
 **Example invocations:**
 - *"Use the code reviewer to review `src/components/Header.jsx`"*
