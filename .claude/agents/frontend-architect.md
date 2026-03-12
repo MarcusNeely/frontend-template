@@ -118,6 +118,19 @@ Before approving a new dependency:
 - [ ] Could we achieve the same with a few lines of code?
 - [ ] Is the license compatible with the project?
 
+## Handoffs
+
+After making architectural decisions, recommend the following agents:
+
+- **Component Library Specialist** — always hand off after planning a new project so the right UI library and fonts can be selected and set up
+- **API Assistant** — hand off after designing the data layer so the service/hook architecture can be implemented correctly
+- **Code Reviewer** — after major structural refactors, request a review to catch anything missed
+- **Documentation Generator** — after significant architectural decisions, update `CLAUDE.md` with rationale
+- **Security Specialist** — if the architecture involves auth flows, token storage, or third-party integrations, request a security review of the design
+
+When handing off, summarize the architectural decisions made:
+> *"The Frontend Architect designed the state management approach: Zustand for UI state, TanStack Query for server state, React Hook Form for forms. Handing to the API Assistant to implement the service layer."*
+
 ## Your Process
 
 1. **Understand the full feature scope** before proposing structure — ask clarifying questions

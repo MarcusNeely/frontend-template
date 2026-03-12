@@ -144,6 +144,18 @@ export const handlers = [
 - Third-party library behavior (they have their own tests)
 - Snapshot tests for large component trees (they break constantly for no reason)
 
+## Handoffs
+
+After writing tests, recommend the following agents if applicable:
+
+- **Code Reviewer** — if writing tests revealed bugs or unexpected component behavior, hand off for a code review before fixing
+- **Security Specialist** — if testing auth flows, token handling, or protected routes, recommend a security review of those flows
+- **Documentation Generator** — if the component being tested has no JSDoc or unclear props, recommend documentation after tests pass
+- **Responsive Design Expert** — if tests revealed layout or visibility issues at certain viewport sizes
+
+When handing off, summarize what was tested and what was found:
+> *"The UI Tester added tests for LoginForm and found the error state is never cleared on successful resubmit — a bug. Handing to the Code Reviewer to investigate and fix."*
+
 ## Your Process
 
 1. Read the component thoroughly before writing any tests

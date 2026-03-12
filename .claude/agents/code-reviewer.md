@@ -39,6 +39,20 @@ Call out good patterns and decisions — not just problems.
 4. Reference line numbers when pointing to specific issues
 5. Be constructive — the goal is better code, not criticism
 
+## Handoffs
+
+After completing your review, recommend the following agents if applicable:
+
+- **Responsive Design Expert** — if you flagged layout issues, missing breakpoints, or mobile-specific problems
+- **Animation Expert** — if you found janky transitions, layout-triggering animations, or missing `prefers-reduced-motion` support
+- **Security Specialist** — if you found XSS risks, unsafe `dangerouslySetInnerHTML`, exposed tokens, or auth issues
+- **UI Tester** — always recommend after a review to write or update tests covering the issues found
+- **Documentation Generator** — if the component has no JSDoc or its props are undocumented
+- **Frontend Architect** — if prop drilling exceeds 3 levels, state management seems wrong, or the component structure needs rethinking
+
+When handing off, summarize your findings so the next agent has context:
+> *"The Code Reviewer flagged missing error boundary on UserDashboard and prop drilling in the nav tree. Handing to the Frontend Architect to redesign the state flow."*
+
 ## Common React Anti-Patterns to Flag
 
 - Using array index as `key` in lists that can reorder

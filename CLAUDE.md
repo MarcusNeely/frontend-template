@@ -34,6 +34,7 @@ Invoke agents by asking Claude: *"Use the [agent name] to..."*
 | **Frontend Architect** | `.claude/agents/frontend-architect.md` | Plan project structure, state management, routing |
 | **API Assistant** | `.claude/agents/api-assistant.md` | Integrate REST/GraphQL APIs, handle async data |
 | **Security Specialist** | `.claude/agents/security-specialist.md` | Audit for XSS, CSRF, JWT risks, and OWASP front end vulnerabilities |
+| **Orchestrator** | `.claude/agents/orchestrator.md` | Coordinate multi-agent pipelines — use this to run a full workflow |
 
 **Example invocations:**
 - *"Use the code reviewer to review `src/components/Header.jsx`"*
@@ -141,6 +142,32 @@ npm run test:coverage # Generate coverage report
 7. Run the **Component Library Specialist** agent to choose a UI library and fonts
 8. Delete the placeholder content from `src/App.jsx`
 9. `npm run dev` and start building
+
+---
+
+## Agent Workflows
+
+Agents are aware of each other and will recommend handoffs when appropriate. For coordinated multi-agent pipelines, invoke the **Orchestrator** agent.
+
+### Standard Pipelines
+
+| Workflow | Agents Involved (in order) |
+|----------|---------------------------|
+| **New Project Setup** | Architect → Component Specialist → Docs Generator |
+| **New Component** | Architect → Component Specialist → Responsive Expert → Animation Expert → Code Reviewer → UI Tester → Docs Generator |
+| **New Feature** | Architect → API Assistant → Component Specialist → Responsive Expert → Animation Expert → Code Reviewer → Security Specialist → UI Tester → Docs Generator |
+| **API Integration** | API Assistant → Security Specialist → UI Tester → Docs Generator |
+| **Bug Fix** | Code Reviewer → Security Specialist → UI Tester → Docs Generator |
+| **UI Polish** | Responsive Expert → Animation Expert → Component Specialist → Code Reviewer |
+| **Pre-Release Audit** | Security Specialist → Code Reviewer → UI Tester → Docs Generator |
+| **Documentation Sprint** | Docs Generator → UI Tester → Code Reviewer |
+
+### How Agents Communicate
+
+- Each agent's instructions include a **Handoffs** section listing which agents to recommend next
+- When an agent completes work, it provides a summary for the next agent to pick up from
+- The **Orchestrator** manages the full pipeline, passing context between agents and announcing each step
+- You can run a full pipeline by saying: *"Use the Orchestrator to run the New Feature pipeline for [feature name]"*
 
 ---
 

@@ -168,6 +168,18 @@ If the project uses GraphQL, prefer **urql** (lightweight) over Apollo Client un
 npm install urql graphql
 ```
 
+## Handoffs
+
+After completing API integration work, recommend the following agents:
+
+- **Security Specialist** — always recommend after any auth-related API work (login, token refresh, protected endpoints) to verify tokens are stored and transmitted correctly
+- **UI Tester** — after creating React Query hooks, recommend writing MSW-mocked tests for loading, error, and success states
+- **Code Reviewer** — after implementing the service layer and hooks, request a review for error handling completeness and patterns
+- **Documentation Generator** — after creating new service files or hooks, recommend JSDoc documentation for the public API
+
+When handing off, summarize what was built:
+> *"The API Assistant implemented the auth service layer and useAuth/useUser hooks with TanStack Query. Handing to the Security Specialist to verify token storage and CSRF protection."*
+
 ## Your Process
 
 1. Read the API documentation or ask for endpoint specs before writing any code

@@ -90,6 +90,19 @@ npm install -D tailwindcss @tailwindcss/vite
 4. **Ensure Font Awesome integration** works alongside the chosen component library
 5. **Document the choice** — update `CLAUDE.md` with the selected library and any customizations
 
+## Handoffs
+
+After selecting and setting up a component library, recommend the following agents:
+
+- **Frontend Architect** — always hand off after library selection so architecture decisions (folder structure, theming approach, state management) can be updated in `CLAUDE.md`
+- **Responsive Design Expert** — after installing a library, verify its grid/layout system is being used correctly for mobile-first layouts
+- **Documentation Generator** — after setup, document the chosen library, font selection, and any customizations made to defaults
+- **Code Reviewer** — after implementing the first set of components, request a review to verify wrapper component patterns and CSS variable integration
+- **Security Specialist** — if the library loads external resources (CDN fonts, remote icons), flag for CSP policy review
+
+When handing off, summarize the decisions made:
+> *"The Component Library Specialist selected shadcn/ui with Inter font. Provider is set up in main.jsx and CSS variables are mapped. Handing to the Frontend Architect to record this decision in CLAUDE.md."*
+
 ## Your Process
 
 1. Ask about the project's design requirements and target users before recommending
